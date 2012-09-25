@@ -1,0 +1,7 @@
+^<kere\.ws>\s-\s.+\s-\s\d+\s\-\s(?<name>.+)\s-\s\[(?<file_number>\d+)\/(?<total_files>\d+)\]\s-\s"(?<filename>[^"]+)"\syEnc\s\((?<segment_number>\d+)\/(?<total_segments>\d+)\)$
+^\[(?<name>[^\]]+)\]\s+\[([^\]]+)\]\s+-\s+"(?<filename>[^"]+)"\s+yEnc\s+\((?<segment_number>\d+)\/(?<total_segments>\d+)\)$
+^<<<Thor>>><<<(?<name>.+)>>>usenet\-space\-cowboys\.info<<<Powered\ by\ https://secretusenet\.com><\ "(?<filename>.+)"\ ><\ (?<file_number>\d+)/(?<total_files>\d+)\ \(.*\)\ ><\ .*\ >\ yEnc\ \((?<segment_number>\d+)/(?<total_segments>\d+)\)$
+^\[kere\.ws/.*\]\-\[.*\]\-\[.*\]\-\[.*\]\-\[(?<name>.+)\]\-\[(?<file_number>\d+)/(?<total_files>\d+)\]\ \-\ "(?<filename>.+)"\ yEnc\ \((?<segment_number>\d+)/(?<total_segments>\d+)\)$
+^\((?<file_number>\d+)/(?<total_files>\d+)\)\ \-\ \[Lords\-of\-Usenet\]\ <<Partner\ of\ SSL\-News\.info>>\ presents\ (?<name>.+)\ \-"(?<filename>.+)"\ \-\ 763,51\ MB\ \-\ yEnc\ \((?<segment_number>\d+)/(?<total_segments>\d+)\)$
+^>ghost\-of\-usenet\.org<<\ (?<name>.+)\ >>www\.SSL\-News\.info>\ \-\ \ "(?<filename>.+)"\ yEnc\ \((?<segment_number>\d+)/(?<total_segments>\d+)\)$
+^\[(?<name>.+)\]\s+\[www\.usenet4ever\.info\s+by\s+Secretusenet\]\s+\-\s+"(?<filename>.+)"\s+yEnc\s+\((?<segment_number>\d+)/(?<total_segments>\d+)\)$

@@ -1,0 +1,8 @@
+page_header(collection)
+
+table_for(collection) do
+  column(:name) { |resource| link_to(resource.name, resource) }
+  column(:fetched_at) { |r| r.last_reference ? time_ago_in_words(r.last_reference.created_at) : em("Never") }
+  column(:last_article) { |r| r.last_reference ? link_to(r.last_reference.article.subject, r.last_reference.article) : em("None") }
+  column(:actions) { |resource| actions_for(resource) }
+end

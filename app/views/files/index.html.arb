@@ -1,0 +1,9 @@
+page_header(collection)
+
+scope_nav do
+  default
+  scope :complete
+  scope :incomplete
+end
+
+render "table"

@@ -1,0 +1,12 @@
+page_header(resource)
+
+description_for(resource) do |e|
+  column :name
+
+  BinHub::NNTP.establish_connection do |nntp|
+    total_messages, first_message, last_message = nntp.group(resource.name)
+    e.column(:total_messages) { total_messages }
+    e.column(:first_message) { first_message }
+    e.column(:last_message) { last_message }
+  end
+end

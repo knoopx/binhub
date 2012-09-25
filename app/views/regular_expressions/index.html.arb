@@ -1,0 +1,12 @@
+page_header(collection)
+
+table_for(collection) do
+  column(:id)
+  column(:priority) { |r| span(class: "badge badge-important") { r.priority } }
+  column(:segments_count) { |resource| link_to(resource.segments_count, [resource, :segments], class: "badge") }
+  column(:regular_expression) { |resource| pre { resource.value } }
+
+  column :actions do |resource|
+    actions_for(resource)
+  end
+end

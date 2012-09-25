@@ -1,0 +1,7 @@
+page_header(resource)
+
+description_for(resource) do
+  column :number
+  column(:file) { link_to resource.file.name, resource.file }
+  column(:regular_expression) { code resource.regular_expression.value }
+end

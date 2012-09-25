@@ -1,0 +1,16 @@
+table_for(collection) do
+  column :number
+
+  column :name do |resource|
+    link_to resource.name, release_file_segments_path(resource.release, resource)
+  end
+
+  column :size do |resource|
+    resource.size ? number_to_human_size(resource.size) : em("n/a")
+  end
+
+  column :segments do |resource|
+    css_class = resource.segments.count == resource.total_segments ? "success" : "important"
+    span([resource.segments.count, resource.total_segments].join("/"), class: "badge badge-#{css_class}")
+  end
+end

@@ -1,0 +1,26 @@
+page_header(collection)
+
+scope_nav do
+  default
+  scope :processed
+  scope :unprocessed
+  scope :pending
+end
+
+table_for(collection) do
+  column :subject do |resource|
+    if resource.segment
+      link_to resource.subject, segment_path(resource.segment)
+    else
+      link_to resource.subject, resource
+    end
+  end
+
+  column(:from)
+  column(:date) { |resource| time_ago_in_words(resource.date) }
+  column(:size) { |resource| number_to_human_size(resource.size) }
+  column(:lines)
+  column(:actions) { |resource| link_to "Use as template...", new_regular_expression_path(regular_expression: {value: resource.subject}), class: "btn btn-mini" }
+end
+
+add_child paginate(collection)

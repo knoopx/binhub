@@ -1,0 +1,10 @@
+page_header(collection)
+
+table_for(collection) do
+  column(:number)
+  column(:file) { |resource| link_to resource.file.name, file_path(resource.file) }
+  column(:article) { |resource| link_to resource.article.subject, resource.article }
+  column(:regular_expression) { |resource| link_to resource.regular_expression.id, resource.regular_expression }
+end
+
+add_child paginate(collection)

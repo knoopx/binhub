@@ -1,0 +1,44 @@
+text_node "<!DOCTYPE html>\r\n".html_safe
+html(lang: "en") do
+  head do
+    meta(charset: "utf-8")
+    meta("http-equiv" => "X-UA-Compatible", content: "IE=Edge,chrome=1")
+    meta(name: "viewport", content: "width=device-width, initial-scale=1.0")
+    title(content_for?(:title) ? yield(:title) : "BinHub")
+    csrf_meta_tags
+    text_node stylesheet_link_tag("application", :media => "all")
+    text_node javascript_include_tag "application"
+    link(href: "images/apple-touch-icon-144x144.png", rel: "apple-touch-icon-precomposed", sizes: "144x144")
+    link(href: "images/apple-touch-icon-114x114.png", rel: "apple-touch-icon-precomposed", sizes: "114x114")
+    link(href: "images/apple-touch-icon-72x72.png", rel: "apple-touch-icon-precomposed", sizes: "72x72")
+    link(href: "images/apple-touch-icon.png", rel: "apple-touch-icon-precomposed")
+    link(href: "images/favicon.ico", rel: "shortcut icon")
+  end
+
+  body do
+    div(class: "navbar navbar-fixed-top") do
+      div(class: "navbar-inner") do
+        div(class: "container-fluid") do
+          text_node link_to "BinHub", root_path, class: "brand"
+
+          div(class: "nav-collapse collapse") do
+            ul(class: "nav") do
+              li link_to "Releases", releases_path
+              li link_to "Files", files_path
+              li link_to "Segments", segments_path
+              li link_to "Articles", articles_path
+              li link_to "Groups", groups_path
+              li link_to "Regular Expressions", regular_expressions_path
+            end
+          end
+        end
+      end
+    end
+
+    div(class: "container-fluid") do
+      div(class: "content") do
+        yield
+      end
+    end
+  end
+end

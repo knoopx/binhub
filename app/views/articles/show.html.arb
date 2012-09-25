@@ -1,0 +1,23 @@
+page_header(resource)
+
+description_for(resource, horizontal: true) do
+  column :subject
+  column :from
+  column :date
+  column :uid
+  column :size
+  column :lines
+end
+
+h2 "References"
+table_for(resource.references) do
+  column(:number)
+  column(:group) { |g| g.group.name }
+end
+
+h2 "Regular Expressions"
+
+table_for(RegularExpression.all) do
+  column(:regex) { |r| code(r.value) }
+  column(:match) { |r| code(r.match(resource.subject).try(:captures).inspect) }
+end

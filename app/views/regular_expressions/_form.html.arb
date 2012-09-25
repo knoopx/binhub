@@ -1,0 +1,6 @@
+form_for(resource) do |f|
+  f.input :value, as: :text, input_html: {class: "span10", rows: 4, style: "font-family:monospace"}
+  f.input :process_placeholders, as: :boolean
+  f.input :priority
+  f.button(:submit)
+end

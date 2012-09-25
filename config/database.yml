@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  database: binhub_development
+  user: root
+  pool: 25
+  timeout: 5000
+  encoding: utf8
+
+test:
+  adapter: sqlite3
+  database: ":memory:"
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+production:
+  adapter: postgresql
+  database: binhub_production
+  user: root
+  pool: 25
+  timeout: 5000
+  encoding: utf8

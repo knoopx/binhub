@@ -1,0 +1,33 @@
+page_header(collection)
+
+scope_nav do
+  default
+  scope :complete
+  scope :incomplete
+end
+
+table_for(collection) do
+  column :name do |resource|
+    text_node link_to resource.name, resource
+    small resource.poster, class: "muted"
+  end
+
+  column(:added) { |r| time_ago_in_words(r.created_at) }
+  column(:date) { |r| time_ago_in_words(r.articles.first.date) }
+  column(:groups) { |r| r.groups.each { |g| span(g.name, class: "label") } }
+
+  column :size do |resource|
+    resource.size ? number_to_human_size(resource.size) : em("n/a")
+  end
+
+  column :files do |resource|
+    css_class = resource.total_files? ? resource.complete? ? "success" : "important" : "warning"
+    span([resource.files_count, resource.total_files].compact.join("/"), class: "badge badge-#{css_class}")
+  end
+
+  column :download do |resource|
+    a(i(class: "icon-download-alt"), href: polymorphic_path(resource, format: "nzb"), class: "btn btn-mini")
+  end
+end
+
+add_child paginate(collection)

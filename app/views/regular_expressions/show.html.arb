@@ -1,0 +1,6 @@
+page_header(resource)
+
+description_for(resource) do
+  column :id
+  column(:value) { |r| code(r.value) }
+end

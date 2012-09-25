@@ -1,0 +1,27 @@
+page_header(resource)
+
+div(class: "row-fluid") do
+  div(class: "span9") do
+    h2 do
+      text_node "Files"
+      small resource.files.count
+
+      small(class: "pull-right") do
+        a(i(class: "icon-download-alt"), href: url_for(format: "nzb"), class: "btn")
+      end
+    end
+    render "files/table", collection: resource.files
+  end
+
+  div(class: "span3") do
+    description_for(resource) do
+      column :poster
+      column(:groups) { |r| r.groups.map { |g| span(g.name, class: "label") } }
+      column(:regular_expressions) do |r|
+        r.regular_expressions.map do |re|
+          popover(re.id, re.value, class: "label")
+        end
+      end
+    end
+  end
+end
